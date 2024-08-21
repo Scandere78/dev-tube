@@ -1,6 +1,7 @@
 <template>
     <div>
-        <VideoCard :videoInfo="video"/>
+        <VideoCard v-for="video in videos" :key="video.id" 
+        :videoInfo="video"/>
     </div>
 </template>
 
@@ -14,8 +15,29 @@ export default {
     },
     data() {
         return {
-            video: "Video Formation",
+            videos: [],
         };
     },
+    mounted() {
+        const url = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UCS2e0hEJMhwd6bNscS60xTg&filter=videos_latest&hl=en&gl=US';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': '9059f2e5a8msh935571fe96e7db2p17683bjsn86b7d77b2cfd',
+		'x-rapidapi-host': 'youtube138.p.rapidapi.com'
+	}
+};
+fetch(url, options)
+.then(response => response.json())
+.then(data => this.videos = data.contents)
+.catch(error => console.error("Probleme fetching the videos", error))
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+}
 };
 </script>
