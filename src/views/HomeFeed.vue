@@ -27,17 +27,12 @@ const options = {
 		'x-rapidapi-host': 'youtube138.p.rapidapi.com'
 	}
 };
+
+
 fetch(url, options)
 .then(response => response.json())
 .then(data => this.videos = data.contents)
 .catch(error => console.error("Probleme fetching the videos", error))
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
-}
 }
 };
 </script>
