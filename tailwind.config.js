@@ -3,7 +3,11 @@ module.exports = {
   purge: ['./src/**/*.vue'],
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        'xxs': '9px',
+      }
+    },
   },
   plugins: [],
 }

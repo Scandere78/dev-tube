@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="sm:px-32 flex flex-wrap jsutify-center">
         <VideoCard v-for="video in videos" :key="video.id" 
         :videoInfo="video"/>
     </div>
