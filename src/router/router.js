@@ -10,7 +10,7 @@ const routes = [
         component:HomeFeed
     },
     {
-        path:'/video:id',
+        path:'/video/:id',
         name: "Video",
         component:VideoDetails
     },
