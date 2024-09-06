@@ -1,12 +1,12 @@
+<!-- HomeFeed.vue -->
 <template>
-    <div class="sm:px-32 flex flex-wrap jsutify-center">
-        <VideoCard v-for="video in videos" :key="video.id" 
-        :videoInfo="video"/>
+    <div>
+        <videoCard v-for="video in videos"  :key="video.id" :videoInfo="video"/>
     </div>
 </template>
 
 <script>
-import VideoCard from "../components/VideoCard.vue";
+import VideoCard from '@/components/VideoCard.vue';
 
 export default {
     name: "HomeFeed",
@@ -18,21 +18,20 @@ export default {
             videos: [],
         };
     },
-    mounted() {
-        const url = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UCS2e0hEJMhwd6bNscS60xTg&filter=videos_latest&hl=en&gl=US';
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': '9059f2e5a8msh935571fe96e7db2p17683bjsn86b7d77b2cfd',
-		'x-rapidapi-host': 'youtube138.p.rapidapi.com'
+    mounted () {
+        const url = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UCoCqCzNVK5KVBV0Kw94mqYw&filter=videos_latest';
+        const options = {
+            method: 'GET',
+            headers: {
+                'x-rapidapi-key': 'f9ed3b18c5mshb5f00e4a4065dccp146b42jsnec2f2a1321a0',
+                'x-rapidapi-host': 'youtube138.p.rapidapi.com'
 	}
 };
 
-
 fetch(url, options)
-.then(response => response.json())
-.then(data => this.videos = data.contents)
-.catch(error => console.error("Probleme fetching the videos", error))
+.then((response) => response.json())
+.then((data) => this.videos = data.contents)
+.catch((error) => console.error("Probleme fetching the videos", error))
 }
-};
+}
 </script>

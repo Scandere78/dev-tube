@@ -14,6 +14,6 @@
 
 <script>
 export default {
-    name: "HeaderNavbar"
+  name: "HeaderNavbar"
 }
 </script>
