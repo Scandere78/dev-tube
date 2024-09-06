@@ -1,6 +1,6 @@
 <!-- HomeFeed.vue -->
 <template>
-    <div>
+    <div class="sm:px-32 flex flex-wrap justify-center">
         <videoCard v-for="video in videos"  :key="video.id" :videoInfo="video"/>
     </div>
 </template>
